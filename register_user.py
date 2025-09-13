@@ -30,22 +30,3 @@ def register_user(username, password):
         return {"error": f"Timeout error occurred: {timeout_err}"}
     except requests.exceptions.RequestException as req_err:
         return {"error": f"An unexpected error occurred: {req_err}"}
-
-if __name__ == "__main__":
-    # Example usage:
-    # You would typically get these from user input or a configuration
-    test_username = "testuser"
-    test_password = "testpassword"
-
-    print(f"Attempting to register user: {test_username}")
-    result = register_user(test_username, test_password)
-
-    if "error" in result:
-        print(f"Registration failed: {result['error']}")
-        if "status_code" in result:
-            print(f"Status Code: {result['status_code']}")
-        if "response" in result:
-            print(f"Response: {result['response']}")
-    else:
-        print("Registration successful!")
-        print(result)
